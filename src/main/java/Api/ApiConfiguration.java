@@ -1,9 +1,10 @@
-package API;
+package Api;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.dropwizard.Configuration;
 import io.dropwizard.bundles.assets.AssetsBundleConfiguration;
 import io.dropwizard.bundles.assets.AssetsConfiguration;
+import io.dropwizard.db.DataSourceFactory;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.Valid;
@@ -16,6 +17,16 @@ public class ApiConfiguration extends Configuration implements AssetsBundleConfi
     @NotEmpty
     @JsonProperty
     private String apiName;
+
+    @Valid
+    @NotNull
+    @JsonProperty("database")
+    private DataSourceFactory database = new DataSourceFactory();
+
+
+    public DataSourceFactory getDataSourceFactory() {
+        return database;
+    }
 
     @Valid
     @NotNull
@@ -37,5 +48,6 @@ public class ApiConfiguration extends Configuration implements AssetsBundleConfi
     {
         return assets;
     }
+
 }
 

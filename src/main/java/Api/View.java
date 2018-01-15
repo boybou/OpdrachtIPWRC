@@ -1,4 +1,4 @@
-package API;
+package Api;
 
 /**
  * Created by boybo on 17-12-2017.

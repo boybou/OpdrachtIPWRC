@@ -1,4 +1,4 @@
-package API;
+package Api;
 
 import io.dropwizard.auth.UnauthorizedHandler;
 
