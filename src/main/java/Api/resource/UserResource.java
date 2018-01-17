@@ -50,6 +50,7 @@ public class UserResource {
     @UnitOfWork
     @Consumes(MediaType.APPLICATION_JSON)
     public void createUser(@Valid User user){
+        user.setRole("klant");
         userService.createUser(user);
     }
 

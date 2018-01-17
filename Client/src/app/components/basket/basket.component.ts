@@ -27,13 +27,15 @@ export class BasketComponent implements OnInit {
   private buy(){
     for(let i = 0;i<this.basketItemList.length;i++){
       this.apiService.put(StaticUris.reduceStockShopItems(this.basketItemList[i].itemName,this.basketItemList[i].amount)).toPromise().then(data =>{
-        this.response = this.responseUtil.goodResponse("aankoop voltooid!")
+        this.response = this.responseUtil.goodResponse("aankoop voltooid!");
         this.basketService.removeFromBasket(this.basketItemList[i]);
       },error => {
         this.response = this.responseUtil.badResponse("aankoop niet gelukt")
       })
     }
     this.basketItemList = [];
+    BasketService.basketItems = [];
+    this.basketService.deleteCookie();
   }
 
   private emptyBasket(){
