@@ -23,6 +23,18 @@ public class ShopItemDao extends AbstractDAO<ShopItem> {
         return persist(shopItem).getId();
     }
 
+    public long deleteShopItem(String itemName){
+       return namedQuery("ShopItems.deleteByName").setParameter("itemName",itemName).executeUpdate();
+    }
+
+    public long restockShopItem(String itemName,double amount){
+        return namedQuery("ShopItems.restockByName").setParameter("itemName",itemName).setParameter("stockAmmount",amount).executeUpdate();
+    }
+
+    public long reduceStockShopItem(String itemName,double amount){
+        return namedQuery("ShopItems.reduceStock").setParameter("itemName",itemName).setParameter("stockAmmount",amount).executeUpdate();
+    }
+
 
     public List<ShopItem> findAll() {
         return list(namedQuery("ShopItems.findAll"));

@@ -1,0 +1,9 @@
+
+<div id="basketInfo">
+  <p><img id="plaatje" src={{imageLink}}><br>
+    {{basketItem.itemName}}<br>
+    Prijs: €{{price}}<br>
+    Aantal:{{basketItem.amount}}<br>
+    totaal: €{{price*basketItem.amount}}</p>
+  <a class="removeButton" (click)="removeFromBasket()">[X:Verwijder uit winkelwagen]</a>
+</div>

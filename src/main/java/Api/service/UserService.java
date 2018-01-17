@@ -25,4 +25,16 @@ public class UserService extends BaseService<User> {
     public void createUser(User user){
         userDao.create(user);
     }
+
+    public long editUser(User user){
+       return userDao.editUser(user);
+    }
+
+    public long promoteUserToAdmin(String email){
+        return userDao.promoteUserToAdmin(email);
+    }
+
+    public long deleteUser(String email){
+        return userDao.deleteUser(email);
+    }
 }

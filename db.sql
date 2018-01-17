@@ -13,5 +13,6 @@ CREATE TABLE Shop_items (
   id SERIAL,
   item_name VARCHAR(255),
   stock_ammount NUMERIC,
+  UNIQUE (item_name),
   CONSTRAINT pk_Shop_items PRIMARY KEY (id)
 );

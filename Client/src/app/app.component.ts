@@ -12,6 +12,7 @@ import {AuthorizationService} from "./shared/AuthorizationService";
 export class AppComponent implements OnInit{
   title = 'app';
   public static cookieService:CookieService;
+  public static sesamOpen:boolean = false;
   constructor(cookieService:CookieService,private router:Router){
     AppComponent.cookieService = cookieService;
   }
@@ -26,6 +27,9 @@ export class AppComponent implements OnInit{
   //   return false;
   // }
 
+  private getSesam(){
+    return AppComponent.sesamOpen;
+  }
 
 
 

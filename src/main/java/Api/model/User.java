@@ -14,7 +14,10 @@ import java.security.Principal;
 @Table(name = "Users")
 @NamedQueries({
         @NamedQuery(name = "Users.findAll", query = "SELECT e FROM User e"),
-        @NamedQuery(name = "Users.findByEmail", query = "SELECT e FROM User e WHERE e.email = :email")
+        @NamedQuery(name = "Users.findByEmail", query = "SELECT e FROM User e WHERE e.email = :email"),
+        @NamedQuery(name = "Users.editUser", query = "UPDATE User e SET e.firstName = :firstName, e.lastName = :lastName, e.email = :email, e.password = :password WHERE e.id = :id"),
+        @NamedQuery(name = "Users.promoteUserToAdmin",query = "UPDATE User e SET e.role = :role WHERE e.email = :email"),
+        @NamedQuery(name = "Users.deleteUser", query = "DELETE FROM User e WHERE e.email = :email")
 })
 public class User implements Principal {
 
@@ -60,8 +63,21 @@ public class User implements Principal {
         this.role = role;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
 
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
     public int getId() {
         return id;
@@ -100,6 +116,7 @@ public class User implements Principal {
     }
 
     @Override
+    @JsonView(View.Internal.class)
     public String getName() {
         return "UserPrincipal";
     }

@@ -1,0 +1,29 @@
+<ul>
+  <li id="website-naam">
+    <a (click)="sesamOpenNu()">de CryptoShop</a>
+  </li>
+  <li class="button">
+    <a routerLink="/">Home</a>
+  </li>
+  <li class="button">
+    <a routerLink="/shop">Shop</a>
+  </li>
+  <li  class="rightSidElements">
+    <a *ngIf="!isLoggedIn()" routerLink="/signup" (mouseenter)="hover = false"><span class="glyphicon glyphicon-user"></span>sign up</a>
+    <a *ngIf="isUser()" routerLink="/user-info" (mouseenter)="hover = false"><span class="glyphicon glyphicon-user"></span>{{user.firstName}} {{user.lastName}}</a>
+  </li>
+  <li class="rightSidElements">
+    <a *ngIf="isLoggedIn()" routerLink="/basket" (mouseenter)="changeHoverState()" ><span class="glyphicon glyphicon-shopping-cart"></span>winkelwagen</a>
+    <a *ngIf="!isLoggedIn()" routerLink="/login" (mouseenter)="changeHoverState()" ><span class="glyphicon glyphicon-shopping-cart"></span>winkelwagen </a>
+  </li>
+  <li class="rightSidElements">
+    <a *ngIf="!isLoggedIn()" routerLink="/login" (mouseenter)="hover = false">
+      <span class="glyphicon glyphicon-log-in"></span>login
+    </a>
+
+    <a *ngIf="isLoggedIn()" (click)="logout()"  routerLink="/login" (mouseenter)="hover = false"><span class="glyphicon glyphicon-log-out"></span>logout</a>
+  </li>
+
+</ul>
+<app-hover-basket *ngIf="hover" ></app-hover-basket>
+

@@ -30,4 +30,22 @@ public class UserDao extends AbstractDAO<User>  {
     public List<User> findAll() {
         return list(namedQuery("Users.findAll"));
     }
+
+    public long editUser(User user){
+        return namedQuery("Users.editUser").setParameter("firstName",user.getFirstName())
+                .setParameter("lastName",user.getLastName())
+                .setParameter("email",user.getEmail())
+                .setParameter("password",user.getPassword())
+                .setParameter("id",user.getId())
+                .executeUpdate();
+    }
+
+    public long promoteUserToAdmin(String email){
+        return namedQuery("Users.promoteUserToAdmin").setParameter("email",email)
+                .setParameter("role","admin").executeUpdate();
+    }
+
+    public long deleteUser(String email){
+        return namedQuery("Users.deleteUser").setParameter("email",email).executeUpdate();
+    }
 }

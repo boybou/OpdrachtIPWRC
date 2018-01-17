@@ -1,0 +1,6 @@
+.removeButton{
+  color: red;
+}
+.removeButton:hover{
+  cursor: pointer;
+}

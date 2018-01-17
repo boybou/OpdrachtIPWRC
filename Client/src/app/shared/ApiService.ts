@@ -17,7 +17,17 @@ export class ApiService{
 
   public post<Any>(uri: string,data: Object) {
     let header = AuthorizationService.header;
-    return this.httpClient.post(uri,data, {headers: header});
+    return this.httpClient.post<Any>(uri,data, {headers: header});
+  }
+
+  public put<Any>(uri: string,data?:Object) {
+    let header = AuthorizationService.header;
+    return this.httpClient.put<Any>(uri,data, {headers: header});
+  }
+
+  public delete<Any>(uri: string) {
+    let header = AuthorizationService.header;
+    return this.httpClient.delete<Any>(uri, {headers: header});
   }
 
 }

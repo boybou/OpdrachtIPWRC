@@ -1,0 +1,10 @@
+.container {
+  width: 1000px;
+  padding: 48px 60px;
+  background-color: #eee;
+  border-radius: 6px;
+  font-family: 'Roboto', sans-serif;
+  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+}

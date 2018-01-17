@@ -1,0 +1,8 @@
+<div *ngIf="ready" class="container">
+  <h3 *ngIf="emptyBasket()">u winkelwagen is leeg</h3>
+  <app-basket-item *ngFor="let basketItem of basketItemList" [basketItem] = "basketItem"></app-basket-item>
+  <form *ngIf="!emptyBasket()">
+    <input type="submit" (click)="buy()" name="kopen" value="kopen">
+    <a id="response">{{response}}</a>
+  </form>
+</div>

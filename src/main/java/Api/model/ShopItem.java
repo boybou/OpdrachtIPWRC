@@ -9,7 +9,10 @@ import javax.persistence.*;
 @Entity
 @Table(name = "Shop_items")
 @NamedQueries({
-        @NamedQuery(name = "ShopItems.findAll", query = "SELECT e FROM ShopItem e")
+        @NamedQuery(name = "ShopItems.findAll", query = "SELECT e FROM ShopItem e"),
+        @NamedQuery(name = "ShopItems.deleteByName", query =  "DELETE FROM ShopItem e WHERE e.itemName = :itemName"),
+        @NamedQuery(name = "ShopItems.restockByName", query = "UPDATE ShopItem e SET e.stockAmmount = e.stockAmmount + :stockAmmount WHERE e.itemName = :itemName"),
+        @NamedQuery(name = "ShopItems.reduceStock", query = "UPDATE ShopItem e SET e.stockAmmount = e.stockAmmount - :stockAmmount WHERE e.itemName = :itemName")
 })
 public class ShopItem {
 
@@ -24,14 +27,13 @@ public class ShopItem {
     private String itemName;
 
     @Column(name = "stock_ammount")
-    @NotEmpty
     @JsonView(View.Public.class)
-    private float stockAmmount;
+    private double stockAmmount;
 
     public ShopItem() {
     }
 
-    public ShopItem(String itemName, float stockAmmount) {
+    public ShopItem(String itemName, double stockAmmount) {
         this.itemName = itemName;
         this.stockAmmount = stockAmmount;
     }
@@ -52,11 +54,11 @@ public class ShopItem {
         this.itemName = itemName;
     }
 
-    public float getStockAmmount() {
+    public double getStockAmmount() {
         return stockAmmount;
     }
 
-    public void setStockAmmount(float stockAmmount) {
+    public void setStockAmmount(double stockAmmount) {
         this.stockAmmount = stockAmmount;
     }
 }

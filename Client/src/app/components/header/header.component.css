@@ -1,0 +1,68 @@
+ul{
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  border-radius: 4px;
+  border: 1.5px solid #e7e7e7;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  list-style: none;
+  margin-bottom: 20px;
+}
+li{
+  float: left;
+}
+li a{
+  display: block;
+  color: #777;
+  text-align: center;
+}
+.button a{
+  padding: 15px 15px;
+  font-size: 14px;
+  text-decoration: none;
+}
+.button a:hover{
+  transition: 0.2s;
+  color: black;
+  background-color: #e7e7e7;
+  cursor: pointer;
+}
+#website-naam a{
+  line-height: normal;
+  padding: 12.5px 15px;
+  font-size: 18px;
+  text-decoration: none;
+}
+#website-naam:hover{
+  text-decoration: none;
+}
+.rightSidElements{
+  float: right;
+}
+
+.rightSidElements a{
+  padding: 15px 15px;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.rightSidElements span{
+  padding-right: 4px;
+}
+
+.rightSidElements:hover{
+  transition: 0.2s;
+  color: black;
+  background-color: #e7e7e7;
+  cursor: pointer;
+}
+app-hover-basket{
+  position: fixed;
+  left: 1170px;
+  top: 70px;
+  max-height: 300px;
+  overflow: scroll;
+
+}
+
+

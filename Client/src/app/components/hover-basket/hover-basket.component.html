@@ -1,0 +1,4 @@
+<div id="hoverBasket">
+  <p *ngIf="emptyBasket()">u winkelwagen is leeg</p>
+  <app-hover-basket-item *ngFor="let basketItem of basketItemList" [basketItem] = "basketItem"></app-hover-basket-item>
+</div>

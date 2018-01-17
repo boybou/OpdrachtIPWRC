@@ -1,0 +1,20 @@
+<div  class="container">
+  <form *ngIf="!editing">
+    <p>voornaam: {{user.firstName}}</p>
+    <p>achternaam: {{user.lastName}}</p>
+    <p>email: {{user.email}}</p>
+    <p>password: ********</p>
+    <input type="submit" (click)="aanpassen()" name="submit" value="aanpassen">
+  </form>
+  <form *ngIf="editing">
+    <input type="text" [(ngModel)]="user.firstName" placeholder="voornaam" name="firstName"><br>
+    <input type="text" [(ngModel)]="user.lastName" placeholder="achternaam" name="lastName"><br>
+    <input type="email" [(ngModel)]="user.email" placeholder="email" name="email"><br>
+    <input type="password" [(ngModel)]="user.password" placeholder="Password" name="password"><br>
+    <input type="password" [(ngModel)]="passwordHerhaal" placeholder="Herhaal Password" name="Herhaalpassword"><br>
+    <input type="submit" (click)="verander()" name="submit" value="verander">
+  </form>
+  <a id="response">{{response}}</a>
+</div>
+
+

@@ -1,0 +1,39 @@
+<div id="adminPannel">
+  <a *ngIf="choosing" (click)="chooseAddCoin()">addCoin</a> <br>
+  <a *ngIf="choosing" (click)="chooseRestockCoin()">restockCoin</a><br>
+  <a *ngIf="choosing" (click)="choosePromoteToAdmin()">promoteToAdmin</a><br>
+  <a *ngIf="choosing" (click)="chooseDeleteUser()">deleteUser</a><br>
+  <a *ngIf="choosing" (click)="chooseDeleteCoin()">deleteCoin</a><br>
+
+
+  <form *ngIf="addCoin" >
+  <input type="text" [(ngModel)]="coinName" placeholder="Coin Name" name="coinName"><br>
+  <input type="submit" (click)="adddCoin()" name="submit1" value="addCoin">
+</form>
+
+  <form *ngIf="restockCoin">
+    <input type="text" [(ngModel)]="restockCoinName" placeholder="Coin Name" name="restockCoinName"><br>
+    <input type="number" [(ngModel)]="restockAmmount" placeholder="amount" name="amount"><br>
+    <input type="submit" (click)="restockkCoin()" name="submit2" value="restockCoin">
+  </form>
+
+  <form *ngIf="promoteToAdmin">
+    <input type="text" [(ngModel)]="userEmail" placeholder="email" name="userEmail"><br>
+    <input type="submit" (click)="promoteeToAdmin()" name="submit3" value="promoteToAdmin">
+  </form>
+
+  <form *ngIf="deleteUser">
+    <input type="text" [(ngModel)]="userDeleteEmail" placeholder="email" name="userDeleteEmail"><br>
+    <input type="submit" (click)="deleteeUser()" name="submit4" value="deleteUser">
+  </form>
+
+  <form *ngIf="deleteCoin">
+    <input type="text" [(ngModel)]="deleteCoinName" placeholder="Coin Name" name="deleteCoin"><br>
+    <input type="submit" (click)="deleteeCoin()" name="submit5" value="deleteCoin">
+  </form>
+
+  <br>
+  <a id="response">{{response}}</a><br>
+  <a *ngIf="!choosing" (click)="backToChoosing()">back</a><br>
+  <a (click)="closeAdminPannel()">close</a>
+</div>

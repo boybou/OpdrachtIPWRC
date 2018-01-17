@@ -4,6 +4,7 @@ import {HttpHeaders} from "@angular/common/http";
 
 import {AppComponent} from "../app.component";
 import {OnInit} from "@angular/core";
+import {User} from "../models/User";
 
 export class AuthorizationService{
 
@@ -12,6 +13,7 @@ export class AuthorizationService{
   public static email:string = "";
   public static isLoggedIn:boolean = false;
   public static goodCookie:boolean = false;
+  public static activeUser:User = null;
 
 
   constructor(){
@@ -48,6 +50,7 @@ export class AuthorizationService{
 
   public deleteAuthorization(){
     this.deleteCookie();
+    AuthorizationService.activeUser = null;
     AuthorizationService.header = new HttpHeaders();
     AuthorizationService.email = '';
     AuthorizationService.isLoggedIn = false;
@@ -62,7 +65,8 @@ export class AuthorizationService{
   }
 
   private deleteCookie(){
-    AppComponent.cookieService.deleteAll();
+    AppComponent.cookieService.delete('header')
+    AppComponent.cookieService.delete('email');
   }
 
 }

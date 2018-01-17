@@ -1,6 +1,7 @@
 <div id="page-wrap">
   <app-header ></app-header>
+  <app-admin-panel *ngIf="getSesam()"></app-admin-panel>
   <router-outlet></router-outlet>
-  <app-footer ></app-footer>
+  <!--<app-footer ></app-footer>-->
 </div>
 

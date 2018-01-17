@@ -53,4 +53,30 @@ public class UserResource {
         userService.createUser(user);
     }
 
+    @PUT
+    @JsonView(View.Public.class)
+    @UnitOfWork
+    @Consumes(MediaType.APPLICATION_JSON)
+    @RolesAllowed({"admin","klant"})
+    public long editUser(@Valid User user){
+        return userService.editUser(user);
+    }
+
+    @PUT
+    @Path("/{email}")
+    @JsonView(View.Public.class)
+    @UnitOfWork
+    @RolesAllowed({"admin"})
+    public long promoteUserToAdmin(@PathParam("email")String email){
+        return userService.promoteUserToAdmin(email);
+    }
+
+    @DELETE
+    @Path("/{email}")
+    @UnitOfWork
+    @RolesAllowed({"admin"})
+    public long deleteUser(@PathParam("email")String email){
+        return userService.deleteUser(email);
+    }
+
 }

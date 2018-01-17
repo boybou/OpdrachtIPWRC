@@ -1,0 +1,12 @@
+<div class="container">
+  <img id="plaatje" src={{imageLink}}>
+  <div id="productInfo">
+    <h3>{{shopItem.itemName}}</h3>
+    <p> Prijs: €{{ price}}<br> Vooraad:{{shopItem.stockAmmount}}</p>
+    <form>
+      <input type="number" [(ngModel)]="amount" placeholder="amount" name="amount" style="width: 8em"><br>
+      <input type="submit" (click)="voegToeAanWinkelWagen()" name="submit" value="in winkelwagen">
+    </form>
+  </div>
+  <a id="response">{{response}}</a>
+</div>
